@@ -259,7 +259,12 @@ counts in those READMEs are out of date.
 **Held back.** These raise `ImportError`, with the reason, if you import them from
 `engine.orchid`:
 
-- `network_design`, `resilience`: ORCHID's bug hunts on them haven't converged.
+- `network_design`: 8 bug-hunt rounds (the agreed cap) still found 10, 5, 4, 5, 16, 9, 7
+  and 8 template bugs, so it hasn't converged (#37 stays open).
+- `resilience`: ORCHID's bug hunt on it hasn't converged.
+- `urban_optimisation`, `transit`, `active_travel`, `safety`, `land_use`, `parking_curbside`,
+  `realtime_operations`, `microsimulation`, `geospatial_urban`: built in ORCHID after our
+  earlier pin, but not vetted for this repo and not used by the plan.
 - `green_infrastructure`: a min-cut-tree bug against the current core.
 - core `probabilistic`: a known erf defect.
 

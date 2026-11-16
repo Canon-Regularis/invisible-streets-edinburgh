@@ -33,7 +33,7 @@ from pathlib import Path, PurePosixPath
 
 # ------------------------------------------------------------------- config (edit here) ---
 ORCHID_REPO = "https://github.com/Orthant-Research-Group/orchid"
-ORCHID_COMMIT = "81022c75f9bfc039f713efdd8fa056fd64c429c8"  # origin/main, merge of PR #10 (policy_compiler rounds 6-9, public_voice rounds 6-7)
+ORCHID_COMMIT = "b57083e192e6ae7ff228abee391aac5f42e7cc48"  # origin/main, merge of PR #31 (network_design rounds 4-8, still held)
 FILES_PER_MODULE = ("__init__.py", "README.md", "{name}_template.py")
 
 URBAN = "algorithms/domains/urban/"
@@ -69,7 +69,9 @@ CORE_EXTRA = {
 
 # Never copied.  Importing one through engine.orchid raises ImportError with this reason.
 HELD = {
-    URBAN + "network_design": "pending: not converged, bug-hunt round 3 still found 4 template bugs (URBAN_PICKUP.md)",
+    URBAN + "network_design": (
+        "pending: not converged after the capped 8 bug-hunt rounds (template bugs per round 10, 5, 4, 5, "
+        "16, 9, 7, 8; URBAN_PICKUP.md); #37 stays open"),
     URBAN + "resilience": "pending: not converged, bug-hunt round 7 still found 4 template bugs (URBAN_PICKUP.md)",
     URBAN + "green_infrastructure": (
         "held: green_min_cut_tree's adapter assumes parent < child, but core gomory_hu_tree (fixed in "
@@ -80,11 +82,14 @@ HELD = {
         "travel_demand fall back to their own stdlib code"),
 }
 
-# Empty in ORCHID at ORCHID_COMMIT (each dir holds only a 0-byte __init__.py).
-NOT_BUILT = (
-    "urban_optimisation", "mosaic_pipeline", "transit", "active_travel", "safety",
-    "land_use", "parking_curbside", "realtime_operations", "microsimulation", "geospatial_urban",
-)
+# Built in ORCHID after the 81022c7 pin (urban wave B). Not vendored: never bug-hunted for this repo,
+# and plan v2 s0 does not call them (team glue replaces urban_optimisation).
+for _m in ("urban_optimisation", "transit", "active_travel", "safety", "land_use", "parking_curbside",
+           "realtime_operations", "microsimulation", "geospatial_urban"):
+    HELD[URBAN + _m] = "held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan"
+
+# Empty in ORCHID at ORCHID_COMMIT (the dir holds only a 0-byte __init__.py).
+NOT_BUILT = ("mosaic_pipeline",)
 NOT_BUILT_REASON = ("not built in ORCHID yet; plan v2 s0 replaces urban_optimisation and "
                     "mosaic_pipeline with team glue")
 # -------------------------------------------------------------------------------------------

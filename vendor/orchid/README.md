@@ -1,6 +1,6 @@
 # vendor/orchid -- generated, do not edit
 
-Verbatim copies of ORCHID (https://github.com/Orthant-Research-Group/orchid) at commit `81022c75f9bfc039f713efdd8fa056fd64c429c8`, written by `scripts/sync_orchid.py`.
+Verbatim copies of ORCHID (https://github.com/Orthant-Research-Group/orchid) at commit `b57083e192e6ae7ff228abee391aac5f42e7cc48`, written by `scripts/sync_orchid.py`.
 Import them through `engine/orchid.py`, e.g. `from engine.orchid import street_network`.
 
 To change what is vendored, edit the lists at the top of `scripts/sync_orchid.py`, re-run it,
@@ -31,6 +31,15 @@ is here, what is held back and why, and the git blob id of every file.
 Held back (not copied):
 
 - `probabilistic` -- held: documented, unfixed erf defect (URBAN_HANDOVER.md s5); emissions_environment and travel_demand fall back to their own stdlib code
+- `active_travel` -- held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan
+- `geospatial_urban` -- held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan
 - `green_infrastructure` -- held: green_min_cut_tree's adapter assumes parent < child, but core gomory_hu_tree (fixed in 07a4271) can return parent > child, so .parent/.cut_value are wrong whenever core network_optimisation is importable; the plan does not use green_infrastructure
-- `network_design` -- pending: not converged, bug-hunt round 3 still found 4 template bugs (URBAN_PICKUP.md)
+- `land_use` -- held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan
+- `microsimulation` -- held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan
+- `network_design` -- pending: not converged after the capped 8 bug-hunt rounds (template bugs per round 10, 5, 4, 5, 16, 9, 7, 8; URBAN_PICKUP.md); #37 stays open
+- `parking_curbside` -- held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan
+- `realtime_operations` -- held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan
 - `resilience` -- pending: not converged, bug-hunt round 7 still found 4 template bugs (URBAN_PICKUP.md)
+- `safety` -- held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan
+- `transit` -- held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan
+- `urban_optimisation` -- held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan
