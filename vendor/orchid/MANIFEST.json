@@ -78,22 +78,76 @@
       "reason": "held: documented, unfixed erf defect (URBAN_HANDOVER.md s5); emissions_environment and travel_demand fall back to their own stdlib code"
     },
     {
+      "name": "active_travel",
+      "optional_import_skipped_by": [],
+      "path": "algorithms/domains/urban/active_travel",
+      "reason": "held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan"
+    },
+    {
+      "name": "geospatial_urban",
+      "optional_import_skipped_by": [],
+      "path": "algorithms/domains/urban/geospatial_urban",
+      "reason": "held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan"
+    },
+    {
       "name": "green_infrastructure",
       "optional_import_skipped_by": [],
       "path": "algorithms/domains/urban/green_infrastructure",
       "reason": "held: green_min_cut_tree's adapter assumes parent < child, but core gomory_hu_tree (fixed in 07a4271) can return parent > child, so .parent/.cut_value are wrong whenever core network_optimisation is importable; the plan does not use green_infrastructure"
     },
     {
+      "name": "land_use",
+      "optional_import_skipped_by": [],
+      "path": "algorithms/domains/urban/land_use",
+      "reason": "held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan"
+    },
+    {
+      "name": "microsimulation",
+      "optional_import_skipped_by": [],
+      "path": "algorithms/domains/urban/microsimulation",
+      "reason": "held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan"
+    },
+    {
       "name": "network_design",
       "optional_import_skipped_by": [],
       "path": "algorithms/domains/urban/network_design",
-      "reason": "pending: not converged, bug-hunt round 3 still found 4 template bugs (URBAN_PICKUP.md)"
+      "reason": "pending: not converged after the capped 8 bug-hunt rounds (template bugs per round 10, 5, 4, 5, 16, 9, 7, 8; URBAN_PICKUP.md); #37 stays open"
+    },
+    {
+      "name": "parking_curbside",
+      "optional_import_skipped_by": [],
+      "path": "algorithms/domains/urban/parking_curbside",
+      "reason": "held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan"
+    },
+    {
+      "name": "realtime_operations",
+      "optional_import_skipped_by": [],
+      "path": "algorithms/domains/urban/realtime_operations",
+      "reason": "held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan"
     },
     {
       "name": "resilience",
       "optional_import_skipped_by": [],
       "path": "algorithms/domains/urban/resilience",
       "reason": "pending: not converged, bug-hunt round 7 still found 4 template bugs (URBAN_PICKUP.md)"
+    },
+    {
+      "name": "safety",
+      "optional_import_skipped_by": [],
+      "path": "algorithms/domains/urban/safety",
+      "reason": "held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan"
+    },
+    {
+      "name": "transit",
+      "optional_import_skipped_by": [],
+      "path": "algorithms/domains/urban/transit",
+      "reason": "held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan"
+    },
+    {
+      "name": "urban_optimisation",
+      "optional_import_skipped_by": [],
+      "path": "algorithms/domains/urban/urban_optimisation",
+      "reason": "held: built in ORCHID after the 81022c7 pin; not vetted for this repo and not used by the plan"
     }
   ],
   "modules": [
@@ -283,58 +337,13 @@
   ],
   "not_built": [
     {
-      "name": "urban_optimisation",
-      "path": "algorithms/domains/urban/urban_optimisation",
-      "reason": "not built in ORCHID yet; plan v2 s0 replaces urban_optimisation and mosaic_pipeline with team glue"
-    },
-    {
       "name": "mosaic_pipeline",
       "path": "algorithms/domains/urban/mosaic_pipeline",
-      "reason": "not built in ORCHID yet; plan v2 s0 replaces urban_optimisation and mosaic_pipeline with team glue"
-    },
-    {
-      "name": "transit",
-      "path": "algorithms/domains/urban/transit",
-      "reason": "not built in ORCHID yet; plan v2 s0 replaces urban_optimisation and mosaic_pipeline with team glue"
-    },
-    {
-      "name": "active_travel",
-      "path": "algorithms/domains/urban/active_travel",
-      "reason": "not built in ORCHID yet; plan v2 s0 replaces urban_optimisation and mosaic_pipeline with team glue"
-    },
-    {
-      "name": "safety",
-      "path": "algorithms/domains/urban/safety",
-      "reason": "not built in ORCHID yet; plan v2 s0 replaces urban_optimisation and mosaic_pipeline with team glue"
-    },
-    {
-      "name": "land_use",
-      "path": "algorithms/domains/urban/land_use",
-      "reason": "not built in ORCHID yet; plan v2 s0 replaces urban_optimisation and mosaic_pipeline with team glue"
-    },
-    {
-      "name": "parking_curbside",
-      "path": "algorithms/domains/urban/parking_curbside",
-      "reason": "not built in ORCHID yet; plan v2 s0 replaces urban_optimisation and mosaic_pipeline with team glue"
-    },
-    {
-      "name": "realtime_operations",
-      "path": "algorithms/domains/urban/realtime_operations",
-      "reason": "not built in ORCHID yet; plan v2 s0 replaces urban_optimisation and mosaic_pipeline with team glue"
-    },
-    {
-      "name": "microsimulation",
-      "path": "algorithms/domains/urban/microsimulation",
-      "reason": "not built in ORCHID yet; plan v2 s0 replaces urban_optimisation and mosaic_pipeline with team glue"
-    },
-    {
-      "name": "geospatial_urban",
-      "path": "algorithms/domains/urban/geospatial_urban",
       "reason": "not built in ORCHID yet; plan v2 s0 replaces urban_optimisation and mosaic_pipeline with team glue"
     }
   ],
   "source": {
-    "commit": "81022c75f9bfc039f713efdd8fa056fd64c429c8",
+    "commit": "b57083e192e6ae7ff228abee391aac5f42e7cc48",
     "repo": "https://github.com/Orthant-Research-Group/orchid"
   }
 }
